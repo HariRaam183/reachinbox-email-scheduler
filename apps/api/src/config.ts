@@ -1,0 +1,4 @@
+import 'dotenv/config';
+import { z } from 'zod';
+const env = z.object({ DATABASE_URL:z.string().default('mysql://reachinbox:reachinbox@localhost:3306/reachinbox'), REDIS_URL:z.string().default('redis://localhost:6379'), PORT:z.coerce.number().default(4000), FRONTEND_URL:z.string().default('http://localhost:3000'), SESSION_SECRET:z.string().default('development-secret-change-me'), MAX_EMAILS_PER_HOUR:z.coerce.number().default(200), MIN_EMAIL_DELAY_MS:z.coerce.number().default(2000), WORKER_CONCURRENCY:z.coerce.number().default(5), ETHEREAL_HOST:z.string().default('smtp.ethereal.email'), ETHEREAL_PORT:z.coerce.number().default(587), ETHEREAL_USER:z.string().optional(), ETHEREAL_PASSWORD:z.string().optional(), GOOGLE_CLIENT_ID:z.string().optional(), GOOGLE_CLIENT_SECRET:z.string().optional(), GOOGLE_CALLBACK_URL:z.string().default('http://localhost:4000/api/auth/google/callback') }).parse(process.env);
+export default env;

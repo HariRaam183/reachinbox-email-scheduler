@@ -1,0 +1,14 @@
+{
+  "name": "reachinbox",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "devDependencies": {"prisma":"^6.14.0","typescript":"^5.9.2"},
+  "scripts": {
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:worker": "npm --workspace apps/worker run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "build": "npm run build -ws",
+    "typecheck": "npm run typecheck -ws",
+    "test": "npm run test -ws"
+  }
+}
